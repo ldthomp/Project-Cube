@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    Rigidbody rb;
     [SerializeField] GameObject blockExplosionVFX;
+
+    Rigidbody rb;
+    Portal nextLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        nextLevel = GetComponent<Portal>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             print("Entering Block");
+        }
+        if(other.CompareTag("Player") && gameObject.tag == "Finish")
+        {
+            print("to load next level");
+            nextLevel.LevelLoad();
         }
     }
     private void OnTriggerExit(Collider other)
