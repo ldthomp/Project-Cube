@@ -37,6 +37,7 @@ public class PathManager : MonoBehaviour
                 Instantiate(blockExplosionVFX, transform.position, transform.rotation);
                 rb.useGravity = true;
                 rb.isKinematic = false;
+                Destroy(gameObject, 5f);
             }
         }
     }
