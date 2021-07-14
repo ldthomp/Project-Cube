@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class PathBlock : MonoBehaviour
 {
     [SerializeField] GameObject blockExplosionVFX;
+    public NavMeshSurface navMeshSurface;
     PathManager path;
     Rigidbody rb;
     
@@ -13,6 +14,7 @@ public class PathBlock : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         path = GetComponentInParent<PathManager>();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +36,7 @@ public class PathBlock : MonoBehaviour
                 rb.isKinematic = false;
                 path.RemoveBlockFromList();
                 Destroy(gameObject, 5f);
+                //navMeshSurface.BuildNavMesh();
             }
         }
     }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockExplosionVFX: {fileID: 8905347031132950366, guid: 708359169867b8d449d00260371b21b3,
     type: 3}
+  navMeshSurface: {fileID: 0}
 --- !u!1001 &3057522312224486917
 PrefabInstance:
   m_ObjectHideFlags: 0
