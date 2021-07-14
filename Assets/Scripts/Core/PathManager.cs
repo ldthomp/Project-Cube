@@ -25,6 +25,7 @@ public class PathManager : MonoBehaviour
         foreach (PathBlock block in blocksInPath)
         {
             path.Add(block.gameObject);
+            print("adding blocks to list. List is now " + path.Count);
         }
     }
 

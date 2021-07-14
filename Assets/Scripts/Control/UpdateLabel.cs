@@ -20,6 +20,6 @@ public class UpdateLabel : MonoBehaviour
     private void UpdateBlockLabel()
     {
         TextMeshPro textMesh = GetComponentInChildren<TextMeshPro>();
-        textMesh.text = this.name;
+        textMesh.text = transform.parent.name;
     }
 }
