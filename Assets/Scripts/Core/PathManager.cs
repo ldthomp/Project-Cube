@@ -1,45 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] GameObject blockExplosionVFX;
-
-    Rigidbody rb;
-    Portal nextLevel;
+    FinishBlock nextLevel;
+    List<GameObject> path = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        nextLevel = GetComponent<Portal>();
+        nextLevel = GetComponent<FinishBlock>();
+        PopulateList();
     }
-
-    private void OnTriggerEnter(Collider other)
+    public int GetPathCount()
     {
-        if (other.CompareTag("Player"))
-        {
-            print("Entering Block");
-        }
-        if(other.CompareTag("Player") && gameObject.tag == "Finish")
-        {
-            print("to load next level");
-            nextLevel.LevelLoad();
-        }
+        return path.Count;
     }
-    private void OnTriggerExit(Collider other)
+    private void PopulateList()
     {
-        if (other.CompareTag("Player"))
+        var blocksInPath = FindObjectsOfType<PathBlock>();
+        
+        foreach (PathBlock block in blocksInPath)
         {
-            if(rb != null)
-            {
-                Instantiate(blockExplosionVFX, transform.position, transform.rotation);
-                rb.useGravity = true;
-                rb.isKinematic = false;
-                Destroy(gameObject, 5f);
-            }
+            path.Add(block.gameObject);
         }
     }
 
+    public void RemoveBlockFromList()
+    {
+        path.RemoveAt(0);
+        print("list length now " + path.Count);
+    }
 }
