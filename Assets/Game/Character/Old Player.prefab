@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6120162339079614179
 Transform:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7190e5d1011cd0147939cdd81af61fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5000
+  speed: 10
 --- !u!195 &3185124241966419247
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 3
-  m_FollowOffset: {x: 0, y: 40, z: -40}
+  m_BindingMode: 4
+  m_FollowOffset: {x: 0, y: 2.42, z: -4}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -297,8 +297,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8915048836055866895}
-  m_LocalRotation: {x: 0.37872306, y: 0.000000022520892, z: -0.000000009215656, w: 0.92551005}
-  m_LocalPosition: {x: 0, y: 40, z: -40}
+  m_LocalRotation: {x: 0.26457295, y: 0.000000016593242, z: -0.000000004552342, w: 0.9643657}
+  m_LocalPosition: {x: 0, y: 2.42, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4402626712866808830}

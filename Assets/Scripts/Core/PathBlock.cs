@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PathBlock : MonoBehaviour
 {
     [SerializeField] GameObject blockExplosionVFX;
     PathManager path;
     Rigidbody rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,6 +28,7 @@ public class PathBlock : MonoBehaviour
         {
             if (rb != null)
             {
+                gameObject.isStatic = false;
                 Instantiate(blockExplosionVFX, transform.position, transform.rotation);
                 rb.useGravity = true;
                 rb.isKinematic = false;
