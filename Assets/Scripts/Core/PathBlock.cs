@@ -31,7 +31,7 @@ public class PathBlock : MonoBehaviour
         {
             if (rb != null)
             {
-                gameObject.isStatic = false;
+                //gameObject.isStatic = false;
                 Instantiate(blockExplosionVFX, transform.position, transform.rotation);
                 rb.useGravity = true;
                 rb.isKinematic = false;

@@ -9,12 +9,19 @@ public class PathManager : MonoBehaviour
     List<GameObject> path = new List<GameObject>();
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        PopulateList();
+    }
     void Start()
     {
         nextLevel = GetComponent<FinishBlock>();
-        PopulateList();
     }
     public int GetPathCount()
+    {
+        return path.Count;
+    }    
+    public int GetMaxPathCount()
     {
         return path.Count;
     }
