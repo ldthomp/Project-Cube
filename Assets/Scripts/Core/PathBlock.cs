@@ -7,31 +7,50 @@ public class PathBlock : MonoBehaviour
 {
     [SerializeField] GameObject blockExplosionVFX;
     [SerializeField] PathManager path;
-    public NavMeshSurface navMeshSurface;
+    [SerializeField] float timesToStepOnBlock = 1;
 
     Rigidbody rb;
-    
+    Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         path = GetComponentInParent<PathManager>();
-
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            print("Entering Block");
+            timesToStepOnBlock--; //take 1 step away each time you step on block
+            ChangeBlockColour();
+            StartCoroutine(BlockBob());
+
         }
     }
+
+    private void ChangeBlockColour()
+    {
+        Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+        GetComponent<Renderer>().material.color = newColor;
+    }
+
+    IEnumerator BlockBob()
+    {
+        animator.SetBool("PlayerOnBlock", true);
+        yield return new WaitForSeconds(0.15f); //time for animation to finish
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (rb != null)
+            animator.SetBool("PlayerOnBlock", false);
+            if (rb != null && timesToStepOnBlock <= 0)
             {
-                //gameObject.isStatic = false;
+                animator.SetTrigger("BlockToDrop");
+                animator.enabled = false;
                 Instantiate(blockExplosionVFX, transform.position, transform.rotation);
                 rb.useGravity = true;
                 rb.isKinematic = false;
