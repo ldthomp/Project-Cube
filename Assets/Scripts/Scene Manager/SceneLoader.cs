@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] Canvas pauseMenu;
-
     Scene currentScene;
-
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
-        if (pauseMenu.enabled) { pauseMenu.enabled = false; }
     }
 
     // Update is called once per frame
@@ -22,29 +18,5 @@ public class SceneLoader : MonoBehaviour
         {
             SceneManager.LoadScene(currentScene.name);
         }
-     if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            //TODO freeze game and controls
-            if(!pauseMenu.enabled)
-            {
-                pauseMenu.enabled = true;
-            }
-            else
-            {
-                pauseMenu.enabled = false;
-            }
-        }
-    }
-    public void ReloadButton()
-    {
-        SceneManager.LoadScene(currentScene.name);
-    }
-    public void ExitButton()
-    {
-        //TODO reload to menu scene
-    }
-    public void ControlsOverlayUI()
-    {
-        //TODO add in UI overlay for showing the controls
     }
 }
