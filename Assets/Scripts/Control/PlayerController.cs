@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
     NavMeshAgent navMeshAgent;
 
     private void Awake()

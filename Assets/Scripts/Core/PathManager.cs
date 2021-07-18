@@ -38,6 +38,7 @@ public class PathManager : MonoBehaviour
 
     public void RemoveBlockFromList()
     {
+        if (path == null) return;
         path.RemoveAt(0);
         print("list length now " + path.Count);
     }

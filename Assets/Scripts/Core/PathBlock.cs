@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class PathBlock : MonoBehaviour
 {
     [SerializeField] GameObject blockExplosionVFX;
-    [SerializeField] PathManager path;
+    PathManager path;
     [SerializeField] float timesToStepOnBlock = 1;
 
     Rigidbody rb;

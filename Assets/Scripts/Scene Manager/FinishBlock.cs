@@ -7,8 +7,11 @@ public class FinishBlock : MonoBehaviour
 {
     // Lets each level set the next level to load. Default set to -1 for scene check
     [SerializeField] int sceneToLoad = -1;
+    [SerializeField] GameObject gate;
     [SerializeField] PathManager pathManager;
+
     public bool inFinishLocation = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +21,11 @@ public class FinishBlock : MonoBehaviour
     }
     private void Update()
     {
+        if (pathManager == null) return;
+        if(pathManager.GetPathCount() <= 0)
+        {
+            gate.SetActive(false);
+        }
         if(inFinishLocation == true && pathManager.GetPathCount() <= 0)
         {
             SceneManager.LoadSceneAsync(sceneToLoad);
