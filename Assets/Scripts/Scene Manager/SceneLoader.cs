@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+
     Scene currentScene;
     void Start()
     {
@@ -19,4 +20,8 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(currentScene.name);
         }
     }
+    public void MainMenuButton()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }    
 }

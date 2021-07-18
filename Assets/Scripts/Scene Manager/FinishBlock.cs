@@ -9,6 +9,7 @@ public class FinishBlock : MonoBehaviour
     [SerializeField] int sceneToLoad = -1;
     [SerializeField] GameObject gate;
     [SerializeField] PathManager pathManager;
+    [SerializeField] Canvas winScreen;
 
     public bool inFinishLocation = false;
 
@@ -21,14 +22,19 @@ public class FinishBlock : MonoBehaviour
     }
     private void Update()
     {
+        var currentScene = SceneManager.GetActiveScene();
+        print(currentScene.buildIndex);
         if (pathManager == null) return;
         if(pathManager.GetPathCount() <= 0)
         {
             gate.SetActive(false);
         }
+        
         if(inFinishLocation == true && pathManager.GetPathCount() <= 0)
         {
+
             SceneManager.LoadSceneAsync(sceneToLoad);
+          
         }
     }
 }

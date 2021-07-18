@@ -22,20 +22,6 @@ public class BlockAmountDisplay : MonoBehaviour
     }
     private void Update()
     {
-        GetComponent<Text>().text = string.Format("{0:0}/{1:0}", pathManager.GetPathCount(), maxPathLength);
-        //if (blockAmountText == null) return;
-        //blockAmountText.text = "hello";
+        GetComponent<TextMeshProUGUI>().text = string.Format("{0:0}/{1:0}", pathManager.GetPathCount(), maxPathLength);
     }
-
-    //Health health;
-
-    //private void Awake()
-    //{
-    //    health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-
-    //}
-    //private void Update()
-    //{
-    //    GetComponent<Text>().text = string.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
-    //}
 }

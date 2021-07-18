@@ -6,8 +6,10 @@ using UnityEngine.AI;
 public class PathBlock : MonoBehaviour
 {
     [SerializeField] GameObject blockExplosionVFX;
-    PathManager path;
+
     [SerializeField] float timesToStepOnBlock = 1;
+    PathManager path;
+    AudioSource audioSource;
 
     Rigidbody rb;
     Animator animator;
@@ -17,6 +19,7 @@ public class PathBlock : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         path = GetComponentInParent<PathManager>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +42,7 @@ public class PathBlock : MonoBehaviour
     IEnumerator BlockBob()
     {
         animator.SetBool("PlayerOnBlock", true);
+        audioSource.Play();
         yield return new WaitForSeconds(0.15f); //time for animation to finish
     }
 
