@@ -32,7 +32,6 @@ public class PathManager : MonoBehaviour
         foreach (PathBlock block in blocksInPath)
         {
             path.Add(block.gameObject);
-            print("adding blocks to list. List is now " + path.Count);
         }
     }
 
@@ -40,6 +39,5 @@ public class PathManager : MonoBehaviour
     {
         if (path == null) return;
         path.RemoveAt(0);
-        print("list length now " + path.Count);
     }
 }

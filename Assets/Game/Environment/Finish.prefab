@@ -535,7 +535,6 @@ GameObject:
   - component: {fileID: 6256115803469069752}
   - component: {fileID: 8518564279904252191}
   - component: {fileID: 6144888677504172873}
-  - component: {fileID: 4981614812853974239}
   - component: {fileID: 6853600505367148710}
   m_Layer: 0
   m_Name: Finish
@@ -648,18 +647,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4981614812853974239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079643309503645303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95053ea6a141d78409b9ecaef3d012b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6853600505367148710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +662,7 @@ MonoBehaviour:
   sceneToLoad: 1
   gate: {fileID: 4004413049927847199}
   pathManager: {fileID: 0}
+  winScreen: {fileID: 0}
   inFinishLocation: 0
 --- !u!1 &8705589715581789613
 GameObject:

@@ -23,7 +23,6 @@ public class FinishBlock : MonoBehaviour
     private void Update()
     {
         var currentScene = SceneManager.GetActiveScene();
-        print(currentScene.buildIndex);
         if (pathManager == null) return;
         if(pathManager.GetPathCount() <= 0)
         {
